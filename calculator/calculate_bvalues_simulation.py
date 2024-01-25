@@ -2,14 +2,14 @@ from pandas import DataFrame
 from typing import List
 from typing import Dict
 
-def get_inv_sim_bvalues(df: DataFrame, wrap_no_list : List, period : int, z_value : float) -> Dict:
+def get_inv_sim_bvalues(df: DataFrame, wrap_no_list : List, period : int, z_value : str) -> Dict:
     inv_sim_bvalues = []
 
     for wrap_no in wrap_no_list :
         inv_bvalue = {
             'wrapProductNo' : wrap_no,
-            'key' : wrap_no + "_" + str(period-1) + "_" + str(z_value),
-            'value' : df[df['key'] == wrap_no + "_" + str(period-1) + "_" + str(z_value)]['value'].values[0]
+            'key' : wrap_no + "_" + str(period-1) + "_" + z_value,
+            'value' : df[df['key'] == wrap_no + "_" + str(period-1) + "_" + z_value]['value'].values[0]
         }
 
         inv_sim_bvalues.append(inv_bvalue)

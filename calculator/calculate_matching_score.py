@@ -21,7 +21,7 @@ def calculate_score(dic_ib : Dict, dic_rw : Dict) -> DataFrame:
 
     return df
 
-def calculate_wrap(df1 : DataFrame, df2 : DataFrame, wrap_list :List, period :int, z_value : float, job_code : str, age : int) -> DataFrame:
+def calculate_wrap(df1 : DataFrame, df2 : DataFrame, wrap_list :List, period :int, z_value : str, job_code : str, age : int) -> DataFrame:
     dic_ib = CBS.get_inv_sim_bvalues(df1, wrap_list, period, z_value)
     dic_rw = CRW.get_risky_weight_score(df2, wrap_list, job_code, age)
 
